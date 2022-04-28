@@ -1,0 +1,40 @@
+<div class="col-12">
+    <div class="row">
+        <h4 class="col-md-4">Tasks table</h4>
+        <span class="col-md-8">
+            <button routerLink="/save" class="btn btn-info pull-right">Add Task</button>
+        </span>
+    </div>
+    <hr>
+    <table class="table table-striped text-center">
+        <thead>
+            <tr>
+                <th class="text-left">Task</th>
+                <th>Priority</th>
+                <th>Team</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody *ngIf="data && data.length">
+
+            <tr *ngFor="let d of data;let i = index">
+                <td class="text-left" >
+                    {{d.name}}
+                </td>
+                <td>
+                    {{d.priority}}
+                </td>
+                <td>
+                    {{d.teamName ? d.teamName : nil}}
+                </td>
+                <td>
+                    <button class="btn btn-success" title="Completed" (click)="deleteTask(d._id,i)">
+                        <i class="fa fa-check-circle"></i>
+                    </button>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <div *ngIf="!(data && data.length)" class="col-12 text-center">No tasks present, add new tasks!</div>
+</div>

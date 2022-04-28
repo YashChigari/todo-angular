@@ -1,0 +1,68 @@
+<div class="col-12">
+    <form [formGroup]="task" (submit)="onSubmit()">
+
+        <div class="animated fadeIn">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong>Add Task </strong>
+                            <small>Form</small>
+                        </div>
+                        <div class="card-body row">
+                            <div class="form-group col-md-4">
+                                <label class="col-form-label" for="name"><b>Task name</b></label>
+                                <div class="">
+                                    <input type="text" id="name" formControlName="name" class="form-control"
+                                        [ngClass]="{'is-invalid':task.get('name')?.touched && task.get('name')?.invalid}"
+                                        placeholder="Enter name">
+                                    <div class="invalid-feedback">
+                                        <div>Task name is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label class="col-form-label" for="priority"><b>Priority</b></label>
+                                <div class="">
+                                    <input type="number" id="priority" formControlName="priority" class="form-control"
+                                        [ngClass]="{'is-invalid':task.get('priority')?.touched && task.get('priority')?.invalid}"
+                                        placeholder="Enter priority">
+                                    <div class="invalid-feedback">
+                                        <div>Priority is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label class="col-form-label" for="teamName"><b>Team name</b></label>
+                                <div class="">
+                                    <input type="text" id="name" formControlName="teamName" class="form-control"
+                                        [ngClass]="{'is-invalid':task.get('teamName')?.touched && task.get('teamName')?.invalid}"
+                                        placeholder="Enter team name">
+                                    <div class="invalid-feedback">
+                                        <div>Team name is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="form-group row">
+                  <label class="col-md-3 col-form-label" for="textarea-input">Description</label>
+                  <div class="col-md-9">
+                    <textarea id="textarea-input" formControlName="textarea-input" rows="9" class="form-control" placeholder="Content.."></textarea>
+                  </div>
+                </div> -->
+    
+                        </div>
+                        <div class="card-footer">
+                            <div class="fl-right pull-right">
+                                <button type="button" class="btn btn-secondary mr-1" (click)="reset()">Reset</button>
+                                <button type="submit" class="btn btn-success"
+                                    [disabled]="!task.valid">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--/.col-->
+            </div>
+            <!--/.row-->
+        </div>
+    </form>
+</div>
